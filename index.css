@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700,900&subset=cyrillic,latin);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,cyrillic,cyrillic-ext);
+
+html,
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body
+{
+    background: #fafafa;
+    box-sizing: border-box;
+    color: #3b3c36;
+    margin: 0 auto;
+    max-width:  1000px;
+    padding: 2em;
+}
+body > header
+{
+    border-bottom: double #ccc;
+    border-top: solid #ccc;
+    padding: 1rem 0;
+}
+section > header
+{
+    position: relative;
+    margin-bottom: 80px;
+}
+section > header:after
+{
+    content: "";
+    width: 20%;
+    height: 100px;
+    background: url("http://svarmet69.ru/images/150px-venz.png") 50% / contain no-repeat;
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    left: 0;
+    margin: auto;
+}
+h1,
+h2
+{
+    font-family: 'Playfair Display SC', serif;
+    text-align: center;
+}
+/*  Делим на колонки  */
+article
+{
+    -webkit-column-count: 4;
+       -moz-column-count: 4;
+            column-count: 4;
+    -webkit-column-rule: 1px solid #ccc;
+       -moz-column-rule: 1px solid #ccc;
+            column-rule: 1px solid #ccc;
+    -webkit-column-gap: 1.5em;
+       -moz-column-gap: 1.5em;
+          column-gap: 1.5em;
+    font: 300 16px 'Roboto Slab', serif;
+    text-align: justify;
+}
+p
+{
+    margin-top: 0; /* так симпатичнее */
+}
+article img
+{
+    border: double #ccc;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 1em 0;
+    padding: 1em;
+    width: 100%;
+}
+main p:not(.spanned):first-letter
+{
+    font-size: 3em;
+    float: left;
+    margin-right: .3em;
+}
+/*  Чтобы :first-letter периодически не уезжала  */
+p:after
+{
+    content: "";
+    display: block;
+    clear: both;
+}
+/*  Выносные элементы  */
+.spanned
+{
+    background: #eaeaea;
+    -webkit-column-span: all;
+       -moz-column-span: all;
+            column-span: all;
+    margin: 1em;
+    padding: 2em;
+}
+/*  Отдельно для текста. А вдруг еще картинка будет? */
+p.spanned
+{
+    border: dotted #ccc;
+    box-sizing: border-box;
+    font: 1.5em 'Playfair Display SC', serif;
+}
+/*  Оформление цитат  */
+.quoted
+{
+    font-weight: 400;
+}
