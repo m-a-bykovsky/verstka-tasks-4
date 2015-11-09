@@ -12,13 +12,19 @@ body
 body
 {
     background: #fafafa;
-    box-sizing: border-box;
-    color: #3b3c36;
+}
+main{
+    margin-top: 1rem;
+}
+main section,
+footer
+{
+    /* box-sizing: border-box; */
     margin: 0 auto;
     max-width:  1000px;
-    padding: 2em;
+    padding: 2rem;
 }
-body > header
+main > header
 {
     border-bottom: double #ccc;
     border-top: solid #ccc;
@@ -27,13 +33,17 @@ body > header
 section > header
 {
     position: relative;
+}
+section > header h2
+{
     margin-bottom: 80px;
 }
-section > header:after
+section > header h2:after
 {
     content: "";
     width: 20%;
     height: 100px;
+    color: #3b3c36;
     background: url("http://svarmet69.ru/images/150px-venz.png") 50% / contain no-repeat;
     position: absolute;
     right: 0;
@@ -44,7 +54,6 @@ section > header:after
 h1,
 h2
 {
-    font-family: 'Playfair Display SC', serif;
     text-align: center;
 }
 /*  Делим на колонки  */
@@ -59,8 +68,8 @@ article
     -webkit-column-gap: 1.5em;
        -moz-column-gap: 1.5em;
           column-gap: 1.5em;
-    font: 300 16px 'Roboto Slab', serif;
     text-align: justify;
+    font-weight: 300;
 }
 p
 {
@@ -103,10 +112,217 @@ p.spanned
 {
     border: dotted #ccc;
     box-sizing: border-box;
-    font: 1.5em 'Playfair Display SC', serif;
+    font-size: 1.5em;
 }
 /*  Оформление цитат  */
 .quoted
 {
     font-weight: 400;
+}
+/*  Настройки  */
+h4.setting,
+label[for*="font"],
+label[for*="color-scheme"]
+{
+    display: inline-block;
+    margin: 1rem;
+    vertical-align: bottom;
+}
+/*  Размер шрифта  */
+input[name="font-size-settings"]
+{
+    display: none;
+}
+input[name=font-size-settings]+ label
+{
+    cursor: pointer;
+}
+input[name=font-size-settings]:checked + label
+{
+    cursor: default;
+    text-decoration: underline;
+}
+label[for="standart-font-size"]
+{
+    font-size: 1em;
+}
+label[for="bigger-font-size"]
+{
+    font-size: 1.3em;    
+}
+label[for="biggest-font-size"]
+{
+    font-size: 1.5em;
+}
+#standart-font-size:checked ~ main
+{
+    font-size: 16px;
+}
+#bigger-font-size:checked ~ main
+{
+    font-size: 20px;
+}
+#biggest-font-size:checked ~ main
+{
+    font-size: 24px;
+}
+/*  Тип шрифта  */
+input[name="font-family"]
+{
+    display: none;
+}
+input[name="font-family"]+ label
+{
+    cursor: pointer;
+}
+input[name="font-family"]:checked + label
+{
+    cursor: default;
+    text-decoration: underline;
+}
+#serif-font-family + label
+{
+    font-family: 'Roboto Slab', serif;
+}
+#serif-font-family:checked ~ main
+{
+    font-family: 'Roboto Slab', serif;
+}
+#serif-font-family:checked ~ main h1,
+#serif-font-family:checked ~ main h2,
+#serif-font-family:checked ~ main p.spanned
+{
+    font-family: 'Playfair Display SC', serif;
+}
+#sans-serif-font-family + label
+{
+    font-family: 'Arial', sans-serif;
+}
+#sans-serif-font-family:checked ~ main
+{
+    font-family: 'Arial', sans-serif;
+}
+/*  Цветовая схема  */
+input[name="color-scheme"]
+{
+    display: none;
+}
+input[name="color-scheme"]+label
+{
+    cursor: pointer;
+    display: inline-block;
+    height: 2rem;
+    margin: 0 1rem;
+    opacity: .5 ;
+    position: relative;
+    width: 2rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#color-scheme-day+label
+{
+    background: #dbefff;
+}
+#color-scheme-day+label:before
+{
+    content: "";
+    background: #fff44f;
+    border-radius: 50%;
+    bottom: 0;
+    height: 1.3rem;
+    left:0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 1.3rem;
+}
+#color-scheme-night+label
+{
+    background: #2c3136;
+}
+#color-scheme-night+label:before,
+#color-scheme-night+label:after
+{
+    content: "";
+    border-radius: 50%;
+    bottom: 0;
+    height: 1.3rem;
+    margin: auto;
+    right: 0;
+    top:0;
+    position: absolute; 
+    width: 1.3rem;
+}
+#color-scheme-night+label:before
+{
+    background: #daf7f7;
+    left:0;
+    
+}
+#color-scheme-night+label:after
+{
+    background: #2c3136;
+}
+#color-scheme-day:checked ~ main
+{
+    color: #3b3c36;
+}
+#color-scheme-night:checked ~ main,
+#color-scheme-night:checked ~ main p.spanned
+{
+    color: #f5f5f5;
+    background: #3b3c36;
+}
+input[name="color-scheme"]:checked + label
+{
+    opacity: 1;
+    cursor: default;
+}
+
+@media all and (max-width: 960px)
+{
+    article
+        {
+        -webkit-column-count: 3;
+           -moz-column-count: 3;
+                column-count: 3;
+    font-size: .9em;
+    }    
+}
+@media all and (max-width: 720px)
+{
+    article
+    {
+        -webkit-column-count: 2;
+           -moz-column-count: 2;
+                column-count: 2;
+    font-size: .8em;
+    }    
+}
+@media all and (max-width: 480px)
+{
+    article
+        {
+        -webkit-column-count: 1;
+           -moz-column-count: 1;
+                column-count: 1;
+    }
+    .spanned
+    {
+        background: #eaeaea;
+        -webkit-column-span: all;
+           -moz-column-span: all;
+                column-span: all;
+        margin: .5em;
+        padding: 1em;
+    }
+    p.spanned
+    {
+        border: dotted #ccc;
+        box-sizing: border-box;
+        font: 1.3em 'Playfair Display SC', serif;
+    }    
 }
